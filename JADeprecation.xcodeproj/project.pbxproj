@@ -1,0 +1,418 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		69C1C62C175FCCCA003183C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C1C62B175FCCCA003183C3 /* Foundation.framework */; };
+		69C1C631175FCCCA003183C3 /* JADeprecation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69C1C630175FCCCA003183C3 /* JADeprecation.h */; };
+		69C1C633175FCCCA003183C3 /* JADeprecation.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C1C632175FCCCA003183C3 /* JADeprecation.m */; };
+		69C1C63B175FCCCA003183C3 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C1C63A175FCCCA003183C3 /* SenTestingKit.framework */; };
+		69C1C63D175FCCCA003183C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C1C63C175FCCCA003183C3 /* UIKit.framework */; };
+		69C1C63E175FCCCA003183C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C1C62B175FCCCA003183C3 /* Foundation.framework */; };
+		69C1C641175FCCCA003183C3 /* libJADeprecation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C1C628175FCCCA003183C3 /* libJADeprecation.a */; };
+		69C1C647175FCCCA003183C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69C1C645175FCCCA003183C3 /* InfoPlist.strings */; };
+		69C1C64A175FCCCA003183C3 /* JADeprecationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C1C649175FCCCA003183C3 /* JADeprecationTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69C1C63F175FCCCA003183C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69C1C620175FCCCA003183C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69C1C627175FCCCA003183C3;
+			remoteInfo = JADeprecation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		69C1C626175FCCCA003183C3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				69C1C631175FCCCA003183C3 /* JADeprecation.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		69C1C628175FCCCA003183C3 /* libJADeprecation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJADeprecation.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		69C1C62B175FCCCA003183C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		69C1C62F175FCCCA003183C3 /* JADeprecation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JADeprecation-Prefix.pch"; sourceTree = "<group>"; };
+		69C1C630175FCCCA003183C3 /* JADeprecation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JADeprecation.h; sourceTree = "<group>"; };
+		69C1C632175FCCCA003183C3 /* JADeprecation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JADeprecation.m; sourceTree = "<group>"; };
+		69C1C639175FCCCA003183C3 /* JADeprecationTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JADeprecationTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69C1C63A175FCCCA003183C3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		69C1C63C175FCCCA003183C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		69C1C644175FCCCA003183C3 /* JADeprecationTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JADeprecationTests-Info.plist"; sourceTree = "<group>"; };
+		69C1C646175FCCCA003183C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69C1C648175FCCCA003183C3 /* JADeprecationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JADeprecationTests.h; sourceTree = "<group>"; };
+		69C1C649175FCCCA003183C3 /* JADeprecationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JADeprecationTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69C1C625175FCCCA003183C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C1C62C175FCCCA003183C3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C1C635175FCCCA003183C3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C1C63B175FCCCA003183C3 /* SenTestingKit.framework in Frameworks */,
+				69C1C63D175FCCCA003183C3 /* UIKit.framework in Frameworks */,
+				69C1C63E175FCCCA003183C3 /* Foundation.framework in Frameworks */,
+				69C1C641175FCCCA003183C3 /* libJADeprecation.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69C1C61F175FCCCA003183C3 = {
+			isa = PBXGroup;
+			children = (
+				69C1C62D175FCCCA003183C3 /* JADeprecation */,
+				69C1C642175FCCCA003183C3 /* JADeprecationTests */,
+				69C1C62A175FCCCA003183C3 /* Frameworks */,
+				69C1C629175FCCCA003183C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69C1C629175FCCCA003183C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69C1C628175FCCCA003183C3 /* libJADeprecation.a */,
+				69C1C639175FCCCA003183C3 /* JADeprecationTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69C1C62A175FCCCA003183C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69C1C62B175FCCCA003183C3 /* Foundation.framework */,
+				69C1C63A175FCCCA003183C3 /* SenTestingKit.framework */,
+				69C1C63C175FCCCA003183C3 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69C1C62D175FCCCA003183C3 /* JADeprecation */ = {
+			isa = PBXGroup;
+			children = (
+				69C1C630175FCCCA003183C3 /* JADeprecation.h */,
+				69C1C632175FCCCA003183C3 /* JADeprecation.m */,
+				69C1C62E175FCCCA003183C3 /* Supporting Files */,
+			);
+			path = JADeprecation;
+			sourceTree = "<group>";
+		};
+		69C1C62E175FCCCA003183C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69C1C62F175FCCCA003183C3 /* JADeprecation-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69C1C642175FCCCA003183C3 /* JADeprecationTests */ = {
+			isa = PBXGroup;
+			children = (
+				69C1C648175FCCCA003183C3 /* JADeprecationTests.h */,
+				69C1C649175FCCCA003183C3 /* JADeprecationTests.m */,
+				69C1C643175FCCCA003183C3 /* Supporting Files */,
+			);
+			path = JADeprecationTests;
+			sourceTree = "<group>";
+		};
+		69C1C643175FCCCA003183C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69C1C644175FCCCA003183C3 /* JADeprecationTests-Info.plist */,
+				69C1C645175FCCCA003183C3 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69C1C627175FCCCA003183C3 /* JADeprecation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69C1C64D175FCCCA003183C3 /* Build configuration list for PBXNativeTarget "JADeprecation" */;
+			buildPhases = (
+				69C1C624175FCCCA003183C3 /* Sources */,
+				69C1C625175FCCCA003183C3 /* Frameworks */,
+				69C1C626175FCCCA003183C3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JADeprecation;
+			productName = JADeprecation;
+			productReference = 69C1C628175FCCCA003183C3 /* libJADeprecation.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		69C1C638175FCCCA003183C3 /* JADeprecationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69C1C650175FCCCA003183C3 /* Build configuration list for PBXNativeTarget "JADeprecationTests" */;
+			buildPhases = (
+				69C1C634175FCCCA003183C3 /* Sources */,
+				69C1C635175FCCCA003183C3 /* Frameworks */,
+				69C1C636175FCCCA003183C3 /* Resources */,
+				69C1C637175FCCCA003183C3 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69C1C640175FCCCA003183C3 /* PBXTargetDependency */,
+			);
+			name = JADeprecationTests;
+			productName = JADeprecationTests;
+			productReference = 69C1C639175FCCCA003183C3 /* JADeprecationTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69C1C620175FCCCA003183C3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Jay Abbott";
+			};
+			buildConfigurationList = 69C1C623175FCCCA003183C3 /* Build configuration list for PBXProject "JADeprecation" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 69C1C61F175FCCCA003183C3;
+			productRefGroup = 69C1C629175FCCCA003183C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69C1C627175FCCCA003183C3 /* JADeprecation */,
+				69C1C638175FCCCA003183C3 /* JADeprecationTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69C1C636175FCCCA003183C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C1C647175FCCCA003183C3 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69C1C637175FCCCA003183C3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69C1C624175FCCCA003183C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C1C633175FCCCA003183C3 /* JADeprecation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69C1C634175FCCCA003183C3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69C1C64A175FCCCA003183C3 /* JADeprecationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69C1C640175FCCCA003183C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69C1C627175FCCCA003183C3 /* JADeprecation */;
+			targetProxy = 69C1C63F175FCCCA003183C3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69C1C645175FCCCA003183C3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69C1C646175FCCCA003183C3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69C1C64B175FCCCA003183C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		69C1C64C175FCCCA003183C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69C1C64E175FCCCA003183C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/JADeprecation.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JADeprecation/JADeprecation-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		69C1C64F175FCCCA003183C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/JADeprecation.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JADeprecation/JADeprecation-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		69C1C651175FCCCA003183C3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JADeprecation/JADeprecation-Prefix.pch";
+				INFOPLIST_FILE = "JADeprecationTests/JADeprecationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		69C1C652175FCCCA003183C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JADeprecation/JADeprecation-Prefix.pch";
+				INFOPLIST_FILE = "JADeprecationTests/JADeprecationTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69C1C623175FCCCA003183C3 /* Build configuration list for PBXProject "JADeprecation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C1C64B175FCCCA003183C3 /* Debug */,
+				69C1C64C175FCCCA003183C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69C1C64D175FCCCA003183C3 /* Build configuration list for PBXNativeTarget "JADeprecation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C1C64E175FCCCA003183C3 /* Debug */,
+				69C1C64F175FCCCA003183C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		69C1C650175FCCCA003183C3 /* Build configuration list for PBXNativeTarget "JADeprecationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69C1C651175FCCCA003183C3 /* Debug */,
+				69C1C652175FCCCA003183C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69C1C620175FCCCA003183C3 /* Project object */;
+}
