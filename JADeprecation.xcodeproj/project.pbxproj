@@ -16,6 +16,9 @@
 		69C1C641175FCCCA003183C3 /* libJADeprecation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C1C628175FCCCA003183C3 /* libJADeprecation.a */; };
 		69C1C647175FCCCA003183C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69C1C645175FCCCA003183C3 /* InfoPlist.strings */; };
 		69C1C64A175FCCCA003183C3 /* JADeprecationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C1C649175FCCCA003183C3 /* JADeprecationTests.m */; };
+		69C1C657175FDD41003183C3 /* good_dep.json in Resources */ = {isa = PBXBuildFile; fileRef = 69C1C654175FDD41003183C3 /* good_dep.json */; };
+		69C1C658175FDD41003183C3 /* good_eol.json in Resources */ = {isa = PBXBuildFile; fileRef = 69C1C655175FDD41003183C3 /* good_eol.json */; };
+		69C1C659175FDD41003183C3 /* good_ok.json in Resources */ = {isa = PBXBuildFile; fileRef = 69C1C656175FDD41003183C3 /* good_ok.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		69C1C646175FCCCA003183C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69C1C648175FCCCA003183C3 /* JADeprecationTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JADeprecationTests.h; sourceTree = "<group>"; };
 		69C1C649175FCCCA003183C3 /* JADeprecationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JADeprecationTests.m; sourceTree = "<group>"; };
+		69C1C654175FDD41003183C3 /* good_dep.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = good_dep.json; path = TestData/good_dep.json; sourceTree = "<group>"; };
+		69C1C655175FDD41003183C3 /* good_eol.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = good_eol.json; path = TestData/good_eol.json; sourceTree = "<group>"; };
+		69C1C656175FDD41003183C3 /* good_ok.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = good_ok.json; path = TestData/good_ok.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +135,7 @@
 		69C1C642175FCCCA003183C3 /* JADeprecationTests */ = {
 			isa = PBXGroup;
 			children = (
+				69C1C653175FD990003183C3 /* Test Data */,
 				69C1C648175FCCCA003183C3 /* JADeprecationTests.h */,
 				69C1C649175FCCCA003183C3 /* JADeprecationTests.m */,
 				69C1C643175FCCCA003183C3 /* Supporting Files */,
@@ -143,6 +150,16 @@
 				69C1C645175FCCCA003183C3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69C1C653175FD990003183C3 /* Test Data */ = {
+			isa = PBXGroup;
+			children = (
+				69C1C654175FDD41003183C3 /* good_dep.json */,
+				69C1C655175FDD41003183C3 /* good_eol.json */,
+				69C1C656175FDD41003183C3 /* good_ok.json */,
+			);
+			name = "Test Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,6 +234,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				69C1C647175FCCCA003183C3 /* InfoPlist.strings in Resources */,
+				69C1C657175FDD41003183C3 /* good_dep.json in Resources */,
+				69C1C658175FDD41003183C3 /* good_eol.json in Resources */,
+				69C1C659175FDD41003183C3 /* good_ok.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
