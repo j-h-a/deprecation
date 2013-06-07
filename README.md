@@ -49,63 +49,62 @@ and validate that it is "ok" before allowing any requests to be made, or remotel
 different features of your app, or point it at a different server, etc.
 
 ```objective-c
+// Construct the URL that returns the deprecation status for this version of my app
+NSString* appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
+NSString* URLString = [NSString stringWithFormat:@"http://example.com/myapp/%@/status.json", appVersion];
+NSURL* deprecationStatusURL = [NSURL URLWithString:URLString];
 
-  // Construct the URL that returns the deprecation status for this version of my app
-	NSString* appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
-	NSString* URLString = [NSString stringWithFormat:@"http://example.com/myapp/%@/status.json", appVersion];
-	NSURL* deprecationStatusURL = [NSURL URLWithString:URLString];
+// Configure the deprecation checker
+JADeprecation* checker = [JADeprecation checkerWithURL:deprecationStatusURL];
+checker.keyPathToState = @"deprecation_info.state";
+checker.stringForOkState = @"ok";
+checker.stringForDeprecatedState = @"deprecated";
+checker.stringForEndOfLifeState = @"end-of-life";
 
-	// Configure the deprecation checker
-	JADeprecation* checker = [JADeprecation checkerWithURL:deprecationStatusURL];
-	checker.keyPathToState = @"deprecation_info.state";
-	checker.stringForOkState = @"ok";
-	checker.stringForDeprecatedState = @"deprecated";
-	checker.stringForEndOfLifeState = @"end-of-life";
-
-	// Set up a handler block
-	dispatch_block_t doPopupBlock = ^
+// Set up a handler block
+dispatch_block_t doPopupBlock = ^
+{
+	JADeprecationState state = checker.state;
+	if((state == JADeprecationStateDeprecated) || (state == JADeprecationStateEndOfLife))
 	{
-		JADeprecationState state = checker.state;
-		if((state == JADeprecationStateDeprecated) || (state == JADeprecationStateEndOfLife))
+		NSString* message = [checker.responseDictionary valueForKeyPath:@"deprecation_info.message"];
+		NSString* urlString = [checker.responseDictionary valueForKeyPath:@"deprecation_info.url"];
+		NSURL* upgradeURL = [NSURL URLWithString:urlString];
+		if(state == JADeprecationStateDeprecated)
 		{
-			NSString* message = [checker.responseDictionary valueForKeyPath:@"deprecation_info.message"];
-			NSString* urlString = [checker.responseDictionary valueForKeyPath:@"deprecation_info.url"];
-			NSURL* upgradeURL = [NSURL URLWithString:urlString];
-			if(state == JADeprecationStateDeprecated)
-			{
-				// Present the message allowing user to continue or upgrade now
-				[self doDeprecatedPopupWithMessage:message upgradeURL:upgradeURL];
-			}
-			else
-			{
-				// Present message only allowing the user to upgrade
-				[self doEndOfLifePopupWithMessage:message upgradeURL:upgradeURL];
-				[self preventAppFromFunctioning];
-			}
+			// Present the message allowing user to continue or upgrade now
+			[self doDeprecatedPopupWithMessage:message upgradeURL:upgradeURL];
 		}
-	};
+		else
+		{
+			// Present message only allowing the user to upgrade
+			[self doEndOfLifePopupWithMessage:message upgradeURL:upgradeURL];
+			[self preventAppFromFunctioning];
+		}
+	}
+};
 
-	// Check the state right now. This will be unknown on the first-run
-	// and the same as last time (cached state) on subsequent runs.
-	if(checker.state == JADeprecationStateDeprecated)
-	{
-		// If current state is deprecated, do the popup every time the URL is re-checked
-		// so the user sees the popup at most once every 24 hours (timeToCacheResponse).
-		[checker onResponseUpdate:doPopupBlock];
-	}
-	else if(checker.state == JADeprecationStateEndOfLife)
-	{
-		// If current state is end of life, do the popup now and prevent
-		// the app from doing anything else.
-		doPopupBlock();
-	}
-	else
-	{
-		// State is unknown or ok, run the popup block only when the state changes.
-		[checker onStateChange:doPopupBlock];
-	}
-	// Start the checker
-	[checker beginChecking];
+// Check the state right now. This will be unknown on the first-run
+// and the same as last time (cached state) on subsequent runs.
+if(checker.state == JADeprecationStateDeprecated)
+{
+	// If current state is deprecated, do the popup every time the URL is re-checked
+	// so the user sees the popup at most once every 24 hours (timeToCacheResponse).
+	[checker onResponseUpdate:doPopupBlock];
+}
+else if(checker.state == JADeprecationStateEndOfLife)
+{
+	// If current state is end of life, do the popup now and prevent
+	// the app from doing anything else.
+	doPopupBlock();
+}
+else
+{
+	// State is unknown or ok, run the popup block only when the state changes.
+	[checker onStateChange:doPopupBlock];
+}
+// Start the checker
+[checker beginChecking];
 ```
 
 [1]: http://mxcl.github.io/homebrew/
