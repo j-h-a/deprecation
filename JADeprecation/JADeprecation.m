@@ -213,7 +213,7 @@
 				[self.localCache setObject:@(expiry) forKey:JADeprecationKeyExpiry];
 				[self.localCache setObject:jsonObject forKey:JADeprecationKeyResponse];
 				// If the state has changed, call the onStateChange block
-				if(self.state != previousState)
+				if((self.state != previousState) && (self.onStateChangeBlock != nil))
 				{
 					dispatch_async(dispatch_get_main_queue(), self.onStateChangeBlock);
 				}
