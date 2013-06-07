@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>--project-name</key>
+	<string>JADeprecation</string>
+	<key>--ignore</key>
+	<array>
+		<string>JADeprecationTests</string>
+	</array>
+	<key>--print-settings</key>
+	<true/>
+	<key>--project-company</key>
+	<string>Jay Abbott</string>
+	<key>--company-id</key>
+	<string>abbott.jay</string>
+	<key>--create-docset</key>
+	<true/>
+	<key>--verbose</key>
+	<integer>4</integer>
+	<key>--logformat</key>
+	<integer>1</integer>
+</dict>
+</plist>
+
