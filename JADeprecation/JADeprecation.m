@@ -18,6 +18,7 @@
 @property (copy, nonatomic)		NSURL*				deprecationURL;
 @property (copy, nonatomic)		NSString*			stringURL;
 @property (copy, nonatomic)		dispatch_block_t	onStateChangeBlock;
+@property (copy, nonatomic)		dispatch_block_t	onResponseUpdateBlock;
 @property (assign, nonatomic)	BOOL				isChecking;
 
 @property (strong, nonatomic, readonly)	NSMutableDictionary*	globalCache; // Cache for all JADeprecation objects
@@ -149,6 +150,11 @@
 	self.onStateChangeBlock = block;
 }
 
+- (void)onResponseUpdate:(dispatch_block_t)block
+{
+	self.onResponseUpdateBlock = block;
+}
+
 - (void)beginChecking
 {
 	if(!self.isChecking)
@@ -212,8 +218,13 @@
 				// Set the new response - which changes the state
 				[self.localCache setObject:@(expiry) forKey:JADeprecationKeyExpiry];
 				[self.localCache setObject:jsonObject forKey:JADeprecationKeyResponse];
+				// The response was updated, call the onResponseUpdate block
+				if(self.onResponseUpdateBlock != nil)
+				{
+					dispatch_async(dispatch_get_main_queue(), self.onResponseUpdateBlock);
+				}
 				// If the state has changed, call the onStateChange block
-				if(self.state != previousState)
+				if((self.state != previousState) && (self.onStateChangeBlock != nil))
 				{
 					dispatch_async(dispatch_get_main_queue(), self.onStateChangeBlock);
 				}

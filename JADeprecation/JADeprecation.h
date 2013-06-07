@@ -143,9 +143,12 @@ typedef enum
 /// @name Handling state-changes
 
 /**
- Provide a block to be executed whenever the deprecation state changes.
+ Provide a block to be executed when the deprecation state changes.
 
- This block will be dispatched on the main thread whenever the deprecation state changes.
+ This block will be dispatched on the main thread when the deprecation state changes
+ due to a successful response from the URL causing the state to change.
+ Note that the reported state will change during configuration of the keyPathToState and
+ `stringFor***State` properties, but these changes won't trigger execution of this block.
  Since responses are cached and persisted across app-launch sessions this block may not be
  executed at all for two reasons: a) the previous (cached) state may still be valid so no
  request to the URL is needed; or b) the previous state had expired so the URL was accessed
@@ -156,6 +159,16 @@ typedef enum
  @param block	The block to be executed when the deprecation state changes.
  */
 - (void)onStateChange:(dispatch_block_t)block;
+
+/**
+ Provide a block to be executed whenever the deprecation state is updated by accessing the URL.
+
+ This block will be dispatched on the main thread whenever a response is successfully retrieved
+ from the URL and the responseDictionary is updated.
+
+ @param block	The block to be executed when the response is updated.
+ */
+- (void)onResponseUpdate:(dispatch_block_t)block;
 
 /// @name Initiate checking
 
