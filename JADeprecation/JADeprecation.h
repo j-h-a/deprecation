@@ -160,6 +160,16 @@ typedef enum
  */
 - (void)onStateChange:(dispatch_block_t)block;
 
+/**
+ Provide a block to be executed whenever the deprecation state is updated by accessing the URL.
+
+ This block will be dispatched on the main thread whenever a response is successfully retrieved
+ from the URL and the responseDictionary is updated.
+
+ @param block	The block to be executed when the response is updated.
+ */
+- (void)onResponseUpdate:(dispatch_block_t)block;
+
 /// @name Initiate checking
 
 /**
