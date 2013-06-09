@@ -322,7 +322,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -423,6 +422,7 @@
 				69C1C64F175FCCCA003183C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69C1C650175FCCCA003183C3 /* Build configuration list for PBXNativeTarget "JADeprecationTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +431,7 @@
 				69C1C652175FCCCA003183C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
