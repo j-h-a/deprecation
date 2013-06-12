@@ -26,6 +26,11 @@
 
 @end
 
+NSString*const JADeprecationCheckingDidBeginNotification = @"JADeprecationCheckingDidBeginNotification";
+NSString*const JADeprecationCheckFailedNotification = @"JADeprecationCheckFailedNotification";
+NSString*const JADeprecationResponseUpdatedNotification = @"JADeprecationResponseUpdatedNotification";
+NSString*const JADeprecationResponseProcessingFailedNotification = @"JADeprecationResponseProcessingFailedNotification";
+
 #define		JADeprecationKeyCache		@"JADeprecation:cache"
 #define		JADeprecationKeyExpiry		@"expiry"
 #define		JADeprecationKeyResponse	@"response"
@@ -174,13 +179,26 @@
 	NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
 	NSNumber* expiryObject = [self.localCache objectForKey:JADeprecationKeyExpiry];
 	NSTimeInterval expiry = [expiryObject doubleValue];
+	NSString* logMessage;
+	NSTimeInterval nextCheckIn;
 	if(expiry < now)
 	{
-		[self doTheCheckNow];
+		nextCheckIn = 0;
+		logMessage = @"Previous response expired. Checking now.";
 	}
 	else
 	{
-		[self doTheCheckIn:expiry - now];
+		nextCheckIn = expiry - now;
+		logMessage = [NSString stringWithFormat:@"Previous response still valid. Next check in %ds.", (NSInteger)nextCheckIn];
+	}
+
+	// Schedule the check
+	[self doTheCheckIn:nextCheckIn];
+
+	// Post the notification that checking did begin
+	if(self.infoNotifications)
+	{
+		[self notifyDidBeginWithLogMessage:logMessage expired:expiry nextCheckIn:nextCheckIn];
 	}
 }
 
@@ -202,8 +220,14 @@
 		// Check for errors
 		if((error != nil) || (data == nil))
 		{
+			NSInteger const retryTime = 300;
 			// Schedule a retry
-			[self doTheCheckIn:300];
+			[self doTheCheckIn:retryTime];
+			// Post the failure notification
+			if(self.infoNotifications)
+			{
+				[self notifyCheckFailedWithError:error retryIn:retryTime];
+			}
 		}
 		else
 		{
@@ -230,14 +254,25 @@
 				}
 				// Schedule another check when the response expires
 				[self doTheCheckIn:self.timeToCacheResponse];
+				// Post the response updated notification
+				if(self.infoNotifications)
+				{
+					[self notifyResponseUpdated];
+				}
 				// Prune expired entries and save the data
 				[self pruneExpiredEntries];
 				[self saveCache];
 			}
 			else
 			{
+				NSInteger const retryTime = 3600;
 				// Schedule a retry check
 				[self doTheCheckIn:3600];
+				// Post the response-processing failed notification
+				if(self.infoNotifications)
+				{
+					[self notifyBadResponse:response error:jsonError retryIn:retryTime];
+				}
 			}
 		}
 	}];
@@ -267,6 +302,57 @@
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 	[defaults setObject:self.globalCache forKey:JADeprecationKeyCache];
 	[defaults synchronize];
+}
+
+- (void)notifyDidBeginWithLogMessage:(NSString*)msg expired:(NSTimeInterval)expiry nextCheckIn:(NSTimeInterval)next
+{
+	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+	NSDictionary* info =
+	@{
+		@"logMessage"		: msg,
+		@"responseExpired"	: @(expiry),
+		@"nextCheckIn"		: @(next)
+	};
+	[nc postNotificationName:JADeprecationCheckingDidBeginNotification object:self userInfo:info];
+}
+
+- (void)notifyCheckFailedWithError:(NSError*)error retryIn:(NSTimeInterval)retryIn
+{
+	NSString* msg = [NSString stringWithFormat:@"Failed to get response from: %@ - Error: %@ - Retrying in: %ds", self.deprecationURL, error, (NSInteger)retryIn];
+	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+	NSDictionary* info =
+	@{
+		@"logMessage"	: msg,
+		@"error"		: error,
+		@"retryIn"		: @(retryIn)
+	};
+	[nc postNotificationName:JADeprecationCheckFailedNotification object:self userInfo:info];
+}
+
+- (void)notifyResponseUpdated
+{
+	NSString* msg = [NSString stringWithFormat:@"Response updated successfully. Next check in %ds.", (NSInteger)self.timeToCacheResponse];
+	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+	NSDictionary* info =
+	@{
+		@"logMessage"	: msg,
+		@"response"		: self.responseDictionary,
+		@"nextCheckIn"	: @(self.timeToCacheResponse)
+	};
+	[nc postNotificationName:JADeprecationResponseUpdatedNotification object:self userInfo:info];
+}
+
+- (void)notifyBadResponse:(NSURLResponse*)response error:(NSError*)error retryIn:(NSTimeInterval)retryIn
+{
+	NSString* msg = [NSString stringWithFormat:@"Failed to process response: %@ - Error: %@ - Retrying in: %ds", response, error, (NSInteger)retryIn];
+	NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+	NSDictionary* info =
+	@{
+		@"logMessage"	: msg,
+		@"urlResponse"	: response,
+		@"retryIn"		: @(retryIn)
+	};
+	[nc postNotificationName:JADeprecationResponseProcessingFailedNotification object:self userInfo:info];
 }
 
 @end

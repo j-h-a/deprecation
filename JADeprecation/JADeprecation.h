@@ -18,6 +18,11 @@ typedef enum
 	JADeprecationStateEndOfLife
 } JADeprecationState;
 
+extern NSString*const JADeprecationCheckingDidBeginNotification;
+extern NSString*const JADeprecationCheckFailedNotification;
+extern NSString*const JADeprecationResponseUpdatedNotification;
+extern NSString*const JADeprecationResponseProcessingFailedNotification;
+
 
 
 /**
@@ -121,6 +126,14 @@ typedef enum
  Set this to the string that represents the JADeprecationStateEndOfLife state.
  */
 @property (strong, nonatomic) NSString* stringForEndOfLifeState;
+
+/**
+ Turn notifications with additional information on or off.
+ 
+ If this property is set to `YES`, notifications will be posted via notification centre
+ with additional information about what's going on. Default value is `NO`.
+ */
+@property (assign, nonatomic) BOOL infoNotifications;
 
 /// @name Creating
 
