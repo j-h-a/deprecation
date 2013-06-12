@@ -248,7 +248,7 @@
 	NSTimeInterval	now = [NSDate timeIntervalSinceReferenceDate];
 
 	// Check each entry in the global cache
-	for(NSString* key in self.globalCache)
+	for(NSString* key in self.globalCache.allKeys)
 	{
 		NSMutableDictionary* singleCache = [self.globalCache objectForKey:key];
 		// Get the expiry time for this entry
