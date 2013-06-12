@@ -97,7 +97,7 @@
 		}
 
 		// Make each cache-entry mutable
-		for(NSString* key in _globalCache)
+		for(NSString* key in _globalCache.allKeys)
 		{
 			NSDictionary* dict = [_globalCache objectForKey:key];
 			[_globalCache setObject:[dict mutableCopy] forKey:key];
